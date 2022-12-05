@@ -1,0 +1,162 @@
+@charset "utf-8"
+
+@use "global" as *
+
+form
+  accent-color: $c--primary
+
+button,
+input,
+textarea,
+select
+  color: inherit
+  font-size: inherit
+  font-family: inherit
+  line-height: inherit
+  text-transform: none
+  border-radius: 0
+
+input,
+textarea,
+select
+  // UIの共通スタイル
+  background-color: #fff
+  border: solid 1px #e5e5e5
+  padding: 6px 16px
+  width: 100%
+  &.__half
+    width: 50%
+  &.__auto
+    width: auto
+  // プレースホルダー
+  &::placeholder
+    color: #b5b5b5
+  // オートフィルで入力した際の背景色
+  &:-webkit-autofill
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset
+  // 編集不可など
+  &[readonly],
+  &:disabled
+    opacity: .4
+    cursor: not-allowed
+    outline: none // フォーカス時のスタイルを無効にすること
+
+input
+  // input[type="number"]の増減ボタン非表示
+  &[type="number"]
+    -moz-appearance: textfield
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+  // チェックボックス、ラジオボタン
+  &[type="radio"],
+  &[type="checkbox"]
+    cursor: pointer
+
+textarea
+  min-height: 80px
+  resize: vertical
+
+select
+  background: $c--white url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M24%2C24H0V0H24Z%22%20fill%3D%22none%22%20opacity%3D%220.87%22%2F%3E%3Cpath%20d%3D%22M15.88%2C9.29%2C12%2C13.17%2C8.12%2C9.29A1%2C1%2C0%2C0%2C0%2C6.71%2C10.7l4.59%2C4.59a1%2C1%2C0%2C0%2C0%2C1.41%2C0L17.3%2C10.7a1%2C1%2C0%2C0%2C0%2C0-1.41%2C1.017%2C1.017%2C0%2C0%2C0-1.42%2C0Z%22%2F%3E%3C%2Fsvg%3E') right 8px center / 24px no-repeat
+  padding-right: 32px
+  cursor: pointer
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  // IEの矢印を非表示
+  &::-ms-expand
+    display: none
+
+button,
+[type="submit"],
+[type="reset"]
+  background: none
+  border: none
+  cursor: pointer
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+label
+  cursor: pointer
+
+// @see https://github.com/mike-engel/a11y-css-reset
+%__hidden
+  position: absolute
+  white-space: nowrap
+  width: 1px
+  height: 1px
+  border: 0
+  margin: -1px
+  padding: 0
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  clip-path: inset(50%)
+
+label.c-input-checkbox
+  display: inline-block
+  margin-right: 16px
+  margin-bottom: 16px
+  position: relative
+  [type="checkbox"]
+    $parent_checkbox: &
+    @extend %__hidden
+    + span
+      display: flex
+      align-items: center
+      font-size: 12px
+      font-weight: bold
+      background-color: $c--gray-s
+      padding: 10px
+      padding-right: 40px
+      position: relative
+      cursor: pointer
+      @at-root #{$parent_checkbox}:checked + span
+        background-color: rgba($c--primary, .1)
+      &::before
+        content: ""
+        display: block
+        outline: solid 2px $c--black
+        width: 14px
+        height: 14px
+        margin-right: 10px
+        @at-root #{$parent_checkbox}:checked + span::before
+          background-color: $c--primary
+          border: solid 2px $c--white
+          outline: solid 2px $c--primary
+
+label.c-input-radio
+  display: inline-block
+  margin-right: 16px
+  margin-bottom: 16px
+  position: relative
+  input[type="radio"]
+    $parent_radio: &
+    @extend %__hidden
+    + span
+      display: flex
+      align-items: center
+      font-size: 12px
+      font-weight: bold
+      background-color: $c--gray-s
+      padding: 10px
+      padding-right: 40px
+      position: relative
+      cursor: pointer
+      @at-root #{$parent_radio}:checked + span
+        background-color: rgba($c--primary, .1)
+      &::before
+        content: ""
+        display: block
+        background-color: $c--white
+        border-radius: 50%
+        outline: solid 2px $c--black
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        @at-root #{$parent_radio}:checked + span::before
+          background-color: $c--primary
+          border: solid 3px $c--white
+          outline: solid 2px $c--primary

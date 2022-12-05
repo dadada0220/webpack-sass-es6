@@ -1,0 +1,79 @@
+@charset "utf-8"
+
+@use "../../foundation/global" as *
+
+.u
+  &-dn
+    display: none !important
+  &-df
+    display: flex !important
+  &-db
+    display: block !important
+  &-di
+    display: inline !important
+  &-diib
+    display: inline-block !important
+
+  &-absolute
+    position: absolute !important
+  &-relative
+    position: relative !important
+  &-static
+    position: static !important
+
+  &-normal
+    font-weight: normal !important
+  &-bold
+    font-weight: bold !important
+
+  &-text-center
+    text-align: center !important
+  &-text-left
+    text-align: left !important
+  &-text-right
+    text-align: right !important
+
+  &-link
+    color: $c--link
+    text-decoration: underline
+    &:hover
+      text-decoration: none
+
+// Margin, Padding
+// **********************************************
++create-space-class('.u-mt', 'margin-top')
++create-space-class('.u-ml', 'margin-left')
++create-space-class('.u-mr', 'margin-right')
++create-space-class('.u-mb', 'margin-bottom')
++create-space-class('.u-mx', 'margin', 'x')
++create-space-class('.u-my', 'margin', 'y')
++create-space-class('.u-pt', 'padding-top')
++create-space-class('.u-pl', 'padding-left')
++create-space-class('.u-pr', 'padding-right')
++create-space-class('.u-pb', 'padding-bottom')
++create-space-class('.u-px', 'padding', 'x')
++create-space-class('.u-py', 'padding', 'y')
+
++max-screen($breackpoint_md)
+  +create-space-class('.u-md-mt', 'margin-top')
+  +create-space-class('.u-md-ml', 'margin-left')
+  +create-space-class('.u-md-mr', 'margin-right')
+  +create-space-class('.u-md-mb', 'margin-bottom')
+  +create-space-class('.u-md-mx', 'margin', 'x')
+  +create-space-class('.u-md-my', 'margin', 'y')
+  +create-space-class('.u-md-pt', 'padding-top')
+  +create-space-class('.u-md-pl', 'padding-left')
+  +create-space-class('.u-md-pr', 'padding-right')
+  +create-space-class('.u-md-pb', 'padding-bottom')
+  +create-space-class('.u-md-px', 'padding', 'x')
+  +create-space-class('.u-md-py', 'padding', 'y')
+
+// Width
+// **********************************************
+// @for $i from 0 through 20
+//   .u-w#{$i * 20}
+//     width: #{$i * 20}px !important
+.u-w-full
+  width: 100% !important
+.u-w-auto
+  width: auto !important
