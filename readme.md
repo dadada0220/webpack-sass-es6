@@ -1,13 +1,13 @@
 # webpack（ES6 + Sass）
 
-ES6、Sass をコンパイルできる webpack のテンプレート  
+ES6、Sassをコンパイルできるwebpackのテンプレート  
 Node.js：`v18.12.0`での動作確認済み
 
 ## 主な機能
 
-- Sass（Scss）を CSS にコンパイル
-- ES6 を ES5 にコンパイル
-- css と js をそれぞれ別ファイルとして出力
+- Sass（Scss）をCSSにコンパイル
+- ES6をES5にコンパイル
+- cssとjsをそれぞれ別ファイルとして出力
 - 出力ファイルは無限に指定可能
 - 開発時にソースマップ出力
 - 公開時に圧縮
