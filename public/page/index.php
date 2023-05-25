@@ -1,6 +1,6 @@
 <?php
-$page_name = 'Under page';
-$page_description = '';
+$PAGE_NAME = 'Under page';
+$PAGE_DESCRIPTION = '';
 ?>
 
 <?php include(__dir__ . '/../module/header.php'); ?>

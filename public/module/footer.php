@@ -2,9 +2,7 @@
 <!-- / .l-main -->
 
 <footer class="p-footer">
-  <div class="p-footer__copyright">
-    <small>© copyright</small>
-  </div>
+  <small class="p-footer__copyright">© 2023 base template.</small>
 </footer>
 
 </div>
